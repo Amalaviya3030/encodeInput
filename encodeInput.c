@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "encodeInput.h"
+#include "../inc/encodeInput.h"
 
 int main(int argc, char* argv[]) {
     char* inputFile = NULL, * outputFile = NULL;
