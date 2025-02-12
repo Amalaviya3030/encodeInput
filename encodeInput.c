@@ -26,3 +26,17 @@ int main(int argc, char* argv[]) {
             return 1;
         }
     }
+    if (!inputFile) {
+        printf("Error: No input file specified\n");
+        return 1;
+    }
+
+    if (!outputFile) {
+        outputFile = srecFormat ? strcat(inputFile, ".srec") : strcat(inputFile, ".asm");
+    }
+
+    FILE* in = fopen(inputFile, "rb");
+    if (!in) {
+        printf("Error: Cannot open input file\n");
+        return 1;
+    }
