@@ -40,3 +40,19 @@ int main(int argc, char* argv[]) {
         printf("Error: Cannot open input file\n");
         return 1;
     }
+    FILE* out = fopen(outputFile, "w");
+    if (!out) {
+        printf("Error: Cannot create output file\n");
+        fclose(in);
+        return 1;
+    }
+
+    if (srecFormat)
+        encodeSREC(in, out);
+    else
+        encodeASM(in, out);
+
+    fclose(in);
+    fclose(out);
+    return 0;
+}
